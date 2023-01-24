@@ -66,7 +66,7 @@ struct UIOnboardingHelper {
     
     static func setUpButton() -> UIOnboardingButtonConfiguration {
         .init(
-            title: "Continue",
+            title: "Continue", bottomSpacing: 0.0,
             backgroundColor: .init(named: "camou") ?? UIColor.init(red: 0.654, green: 0.618, blue: 0.494, alpha: 1.0)
         )
     }
