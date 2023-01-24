@@ -12,7 +12,7 @@ final class UIOnboardingOverlay: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        prepareForOnboarding()
+        prepareForOnboarding()  //used in animation
     }
     
     required init?(coder: NSCoder) {

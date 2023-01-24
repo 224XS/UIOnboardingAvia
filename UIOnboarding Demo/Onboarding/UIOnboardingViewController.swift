@@ -59,7 +59,7 @@ final class UIOnboardingViewController: UIViewController {
     }
     
     deinit {
-        print("UIOnboardingViewController: deinit {}")
+        //print("UIOnboardingViewController: deinit {}")
     }
     
     override func viewDidLoad() {
@@ -126,6 +126,8 @@ extension UIOnboardingViewController: UIScrollViewDelegate {
         }
 
         hasScrolledToBottom = scrollOffset + scrollViewHeight >= scrollContentSizeHeight + bottomOverlayView.frame.height + view.safeAreaInsets.bottom
+        
+       // let test = self.view
 
         DispatchQueue.main.async {
             UIView.animate(withDuration: 0.21, animations: {
@@ -221,8 +223,8 @@ private extension UIOnboardingViewController {
             bottomOverlayView.addSubview(onboardingNoticeIcon)
             onboardingNoticeIcon.topAnchor.constraint(equalTo: bottomOverlayView.topAnchor, constant: 16).isActive = true
             onboardingNoticeIcon.centerXAnchor.constraint(equalTo: bottomOverlayView.centerXAnchor).isActive = true
-            onboardingNoticeIcon.heightAnchor.constraint(equalToConstant: 16).isActive = true
-            onboardingNoticeIcon.widthAnchor.constraint(equalToConstant: 16).isActive = true
+            onboardingNoticeIcon.heightAnchor.constraint(equalToConstant: textViewConfiguration.iconSize?.height ?? 40.0).isActive = true
+            onboardingNoticeIcon.widthAnchor.constraint(equalToConstant: textViewConfiguration.iconSize?.width ?? 40.0).isActive = true
         }
         
         onboardingTextView = .init(withConfiguration: textViewConfiguration)

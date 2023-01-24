@@ -13,8 +13,10 @@ struct UIOnboardingTextViewConfiguration {
     var linkTitle: String?
     var link: String?
     var tint: UIColor?
+    var iconSize: CGSize?
 
     init(icon: UIImage? = nil,
+         iconSize: CGSize? = nil,
          text: String,
          linkTitle: String? = nil,
          link: String? = nil,
@@ -24,5 +26,10 @@ struct UIOnboardingTextViewConfiguration {
         self.linkTitle = linkTitle
         self.link = link
         self.tint = tint
+        if let size = iconSize {
+            self.iconSize = size
+        } else {
+            self.iconSize = icon?.size
+        }
     }
 }
