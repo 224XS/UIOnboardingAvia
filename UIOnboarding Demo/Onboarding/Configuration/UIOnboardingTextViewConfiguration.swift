@@ -14,18 +14,21 @@ struct UIOnboardingTextViewConfiguration {
     var link: String?
     var tint: UIColor?
     var iconSize: CGSize?
+    var verticalSpacing: CGFloat?
 
     init(icon: UIImage? = nil,
          iconSize: CGSize? = nil,
          text: String,
          linkTitle: String? = nil,
          link: String? = nil,
-         tint: UIColor? = nil) {
+         tint: UIColor? = nil,
+         verticalSpacing:CGFloat? = nil) {
         self.icon = icon
         self.text = text
         self.linkTitle = linkTitle
         self.link = link
         self.tint = tint
+        self.verticalSpacing = verticalSpacing
         if let size = iconSize {
             self.iconSize = size
         } else {

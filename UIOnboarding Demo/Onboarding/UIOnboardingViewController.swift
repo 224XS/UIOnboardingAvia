@@ -214,14 +214,15 @@ private extension UIOnboardingViewController {
             return
         }
         
+        let vs = textViewConfiguration.verticalSpacing ?? 16.0
+
         if let icon = textViewConfiguration.icon {
             onboardingNoticeIcon = .init(image: icon.withRenderingMode(.alwaysTemplate))
             onboardingNoticeIcon.tintColor = .secondaryLabel
             onboardingNoticeIcon.contentMode = .scaleAspectFit
             onboardingNoticeIcon.translatesAutoresizingMaskIntoConstraints = false
-            
             bottomOverlayView.addSubview(onboardingNoticeIcon)
-            onboardingNoticeIcon.topAnchor.constraint(equalTo: bottomOverlayView.topAnchor, constant: 16).isActive = true
+            onboardingNoticeIcon.topAnchor.constraint(equalTo: bottomOverlayView.topAnchor, constant: vs).isActive = true
             onboardingNoticeIcon.centerXAnchor.constraint(equalTo: bottomOverlayView.centerXAnchor).isActive = true
             onboardingNoticeIcon.heightAnchor.constraint(equalToConstant: textViewConfiguration.iconSize?.height ?? 40.0).isActive = true
             onboardingNoticeIcon.widthAnchor.constraint(equalToConstant: textViewConfiguration.iconSize?.width ?? 40.0).isActive = true
@@ -233,7 +234,10 @@ private extension UIOnboardingViewController {
         onboardingTextView!.bottomAnchor.constraint(equalTo: continueButton.topAnchor).isActive = true
         onboardingTextView!.leadingAnchor.constraint(equalTo: continueButton.leadingAnchor).isActive = true
         onboardingTextView!.trailingAnchor.constraint(equalTo: continueButton.trailingAnchor).isActive = true
-        onboardingTextView!.topAnchor.constraint(equalTo: onboardingNoticeIcon != nil ? onboardingNoticeIcon.bottomAnchor : bottomOverlayView.topAnchor, constant: onboardingNoticeIcon != nil ? 16 : 32).isActive = true
+        onboardingTextView!.topAnchor.constraint(
+            equalTo:
+                onboardingNoticeIcon != nil ? onboardingNoticeIcon.bottomAnchor : bottomOverlayView.topAnchor,
+            constant: onboardingNoticeIcon != nil ? vs : (vs*2)).isActive = true
     }
     
     func startOnboardingAnimation(completion: (() -> Void)?) {

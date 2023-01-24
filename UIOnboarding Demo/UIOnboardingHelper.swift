@@ -53,12 +53,14 @@ struct UIOnboardingHelper {
     
     static func setUpNotice() -> UIOnboardingTextViewConfiguration {
         .init(
-            icon: .init(named: "onboarding-notice-icon"),
-            iconSize: CGSize(width: 60, height: 20),
+            //icon: .init(named: "onboarding-notice-icon"),
+            icon: .init(named: "AviametrixCart"),
+            iconSize: CGSize(width: 120, height: 40),
             text: "Developed and designed for members of the Swiss Armed Forces.",
             linkTitle: "Learn more...",
             link: "https://www.lukmanascic.ch/portfolio/insignia",
-            tint: .init(named: "camou") ?? UIColor.init(red: 0.654, green: 0.618, blue: 0.494, alpha: 1.0)
+            tint: .init(named: "camou") ?? UIColor.init(red: 0.654, green: 0.618, blue: 0.494, alpha: 1.0),
+            verticalSpacing: 8.0
         )
     }
     
